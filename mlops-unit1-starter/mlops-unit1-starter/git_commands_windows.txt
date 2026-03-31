@@ -1,0 +1,55 @@
+EXPERIMENT 1
+mkdir mlops-unit1
+cd mlops-unit1
+git init
+git remote add origin https://github.com/YOUR-USERNAME/mlops-unit1.git
+git add .
+git commit -m "Initial commit: Dataset loading and preprocessing"
+git branch -M main
+git push -u origin main
+
+Create experiment branch:
+git checkout -b experiment-v1
+
+After editing preprocess.py and/or adding correlation output:
+git add src\preprocess.py
+git commit -m "Experiment: Added correlation analysis"
+git push origin experiment-v1
+
+Merge experiment branch:
+git checkout main
+git merge experiment-v1
+git push origin main
+
+EXPERIMENT 2
+python -m venv mlops
+.\mlops\Scripts\activate
+pip install -r requirements.txt
+python src\train_model.py
+pip freeze > requirements.txt
+git add .
+git commit -m "Exercise 2: ML pipeline with custom mlops venv"
+git push origin main
+
+EXPERIMENT 3
+Folder structure is already prepared in this starter project.
+Run and capture screenshots of the existing data/, src/, and models/ folders.
+git add .
+git commit -m "Exercise 3: Reorganized project into MLOps-friendly structure"
+git push origin main
+
+EXPERIMENT 4
+pip freeze > requirements.txt
+Update README if needed
+git add README.md requirements.txt
+git commit -m "Exercise 4: Reproducibility setup"
+git push origin main
+
+Clone test:
+cd ..
+git clone https://github.com/YOUR-USERNAME/mlops-unit1.git mlops-test
+cd mlops-test
+python -m venv mlops
+.\mlops\Scripts\activate
+pip install -r requirements.txt
+python src\train_model.py
